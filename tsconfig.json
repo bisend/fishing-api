@@ -1,0 +1,31 @@
+{
+  "compilerOptions": {
+    "incremental": true,
+    "target": "es6",
+    "module": "commonjs", //commonjs destroys 'dynamic imports' which is used for code splitting
+    "noImplicitAny": false,
+    "preserveConstEnums": true,
+    "baseUrl": "./app",
+    "allowSyntheticDefaultImports": true, // no errors with commonjs modules interop
+    "esModuleInterop": true,
+    "allowJs": true, // include js files
+    "declaration": false,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "forceConsistentCasingInFileNames": true,
+    "moduleResolution": "node",
+    "noEmitOnError": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noUnusedLocals": false,
+    "strict": true,
+    "strictFunctionTypes": false,
+    "pretty": true,
+    "removeComments": true,
+    "outDir": "dist",
+    "sourceMap": true
+  },
+  "include": ["app/**/*"],
+  "exclude": ["node_modules"]
+}

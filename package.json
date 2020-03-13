@@ -1,0 +1,35 @@
+{
+  "name": "fishing-api",
+  "version": "1.0.0",
+  "description": "api for fishing social network",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "tsc": "tsc",
+    "start": "cross-env NODE_ENV=dev node app/server/index.ts",
+    "start:prod": "cross-env NODE_ENV=prod node dist/index.js",
+    "prebuild": "npm run build:clean",
+    "build": "cross-env NODE_ENV=prod tsc",
+    "build:clean": "rimraf ./dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bisend/fishing-api.git"
+  },
+  "author": "bisend",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bisend/fishing-api/issues"
+  },
+  "homepage": "https://github.com/bisend/fishing-api#readme",
+  "dependencies": {
+    "cross-env": "^7.0.2",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.3",
+    "@types/node": "^13.9.1",
+    "rimraf": "^3.0.2",
+    "tslint": "^6.1.0",
+    "typescript": "^3.8.3"
+  }
+}
