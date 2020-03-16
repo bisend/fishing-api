@@ -1,13 +1,22 @@
 import express from 'express';
-import Router from './routes';
+import Router from '../routes/index';
+import db from '../database/connection';
 const app = express();
 
 app.use(Router);
 
-app.listen(3000, 'localhost', async (err) => {
-  if (err) {
-    console.log(err);
-  }
-  console.log(process.env.NODE_ENV);
-  console.log(`App listening on port 3000!`);
+const port = 3000;
+
+const startServer = async () => {
+  const connected = await db();
+  if (!connected) return;
+  app.listen(port, 'localhost', async (err) => {
+    if (err) {
+      console.log(err);
+    }
+  });
+};
+
+startServer().then(() => {
+  console.log(`App listening: http://localhost:${port}`);
 });
