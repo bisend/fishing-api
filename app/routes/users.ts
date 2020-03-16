@@ -4,8 +4,6 @@ import { getUsers, createUser } from '../Controllers/UserController';
 
 // routes
 router.get('/', getUsers);
-router.get('create', (req, res) => {
-  return res.send(123123);
-});
+router.get('/create', createUser);
 
 export default router;

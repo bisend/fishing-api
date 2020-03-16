@@ -7,13 +7,17 @@ app.use(Router);
 
 const port = 3000;
 
-const startServer = async () => {
-  const connected = await db();
-  if (!connected) return;
-  app.listen(port, 'localhost', async (err) => {
-    if (err) {
-      console.log(err);
-    }
+const startServer = () => {
+  return new Promise(async (resolve, reject) => {
+    const connected = await db();
+    if (!connected) reject();
+    app.listen(port, 'localhost', async (err) => {
+      if (err) {
+        console.log(err);
+        reject();
+      }
+      resolve();
+    });
   });
 };
 
