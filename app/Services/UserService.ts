@@ -1,4 +1,5 @@
 import UserRepository from '../Repositories/UserRepository';
+import { IUser } from '../interfaces/user';
 
 class UserService {
   public userRepository;
@@ -7,7 +8,11 @@ class UserService {
   }
 
   async getUsers() {
-    return await this.userRepository.getUsers();
+    return this.userRepository.getUsers();
+  }
+
+  async create(user: IUser) {
+    return this.userRepository.create(user);
   }
 }
 
