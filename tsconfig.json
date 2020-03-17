@@ -24,7 +24,8 @@
     "pretty": true,
     "removeComments": true,
     "outDir": "dist",
-    "sourceMap": true
+    "sourceMap": true,
+    "strictPropertyInitialization": false
   },
   "include": ["app/**/*"],
   "exclude": ["node_modules"]

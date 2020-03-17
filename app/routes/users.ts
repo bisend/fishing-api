@@ -4,6 +4,6 @@ import { getUsers, createUser } from '../Controllers/UserController';
 
 // routes
 router.get('/', getUsers);
-router.get('/create', createUser);
+router.get('/create', [ ], createUser);
 
 export default router;

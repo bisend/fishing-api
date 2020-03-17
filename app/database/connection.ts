@@ -1,7 +1,12 @@
 import mongoose from 'mongoose';
 
 export default (async () => {
-  const params = { useNewUrlParser: true, useUnifiedTopology: true, dbName: process.env.DB_NAME };
+  const params = {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    dbName: process.env.DB_NAME,
+    useCreateIndex: true,
+  };
   const url = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@${process.env.DB_HOST}`;
   try {
     await mongoose.connect(url, params);

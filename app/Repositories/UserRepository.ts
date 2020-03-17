@@ -12,10 +12,12 @@ class UserRepository {
   }
 
   async create(data: IUser) {
-    return User.create(data).then(user => user).catch((err) => {
-      console.log(err);
-      return null;
-    });
+    return User.create(data)
+      .then(user => user)
+      .catch((err) => {
+        console.log(err);
+        return null;
+      });
   }
 }
 
