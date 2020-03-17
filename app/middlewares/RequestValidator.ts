@@ -1,11 +1,22 @@
 import { Request, Response } from 'express';
-import { validate } from 'class-validator';
+import { validate, ValidationError } from 'class-validator';
 import { plainToClass } from 'class-transformer';
+import BaseError, { IError } from '../errors/BaseError';
 
 export default function RequestValidator(ValidatorClass) {
   return async (req: Request, res: Response, next: Function) => {
-    const obj = plainToClass(ValidatorClass, req.body);
-    validate(obj, { validationError: { target: false } }).then(err => console.log(err));
-    next(new Error());
+    try {
+      const obj = plainToClass(ValidatorClass, req.body);
+      validate(obj, { validationError: { target: false } }).then((errors) => {
+        const messages: IError['messages'] = {};
+        if (!errors.length) {
+          next();
+        }
+        errors.forEach((err: ValidationError) => (messages[err.property] = Object.values(err.constraints)));
+        next(new BaseError(undefined, undefined, messages));
+      });
+    } catch (e) {
+      next(new Error());
+    }
   };
 }
