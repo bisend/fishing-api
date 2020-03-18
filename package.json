@@ -23,6 +23,7 @@
   "homepage": "https://github.com/bisend/fishing-api#readme",
   "dependencies": {
     "@types/mongoose": "^5.7.6",
+    "bcrypt": "^4.0.1",
     "body-parser": "^1.19.0",
     "class-transformer": "^0.2.3",
     "class-validator": "^0.11.0",

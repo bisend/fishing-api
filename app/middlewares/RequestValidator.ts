@@ -11,12 +11,13 @@ export default function RequestValidator(ValidatorClass) {
         const messages: IError['messages'] = {};
         if (!errors.length) {
           next();
+        } else {
+          errors.forEach((err: ValidationError) => (messages[err.property] = Object.values(err.constraints)));
+          next(new BaseError({ messages }));
         }
-        errors.forEach((err: ValidationError) => (messages[err.property] = Object.values(err.constraints)));
-        next(new BaseError(undefined, undefined, messages));
       });
     } catch (e) {
-      next(new Error());
+      next(new BaseError({}));
     }
   };
 }
