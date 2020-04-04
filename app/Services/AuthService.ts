@@ -1,5 +1,5 @@
 import UserRepository from '../Repositories/UserRepository';
-import { IUser } from '../interfaces/user';
+import { IUser } from '../interfaces/User';
 import { hashPassword } from '../helpers/HashPassword';
 
 export default class AuthService {

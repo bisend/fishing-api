@@ -1,5 +1,5 @@
 import { IsEmail, Length, IsNotEmpty, IsDefined } from 'class-validator';
-import { IUser } from '../interfaces/user';
+import { IUser } from '../interfaces/User';
 
 export class RegistrationValidator {
   @IsDefined({ message: 'E-mail обязательное поле' })

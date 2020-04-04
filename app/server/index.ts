@@ -13,7 +13,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(Router);
 app.use(Exception);
 
-const port = 3000;
+const port = Number(process.env.PORT) || 3000;
 
 const startServer = () => {
   return new Promise(async (resolve, reject) => {

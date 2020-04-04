@@ -1,5 +1,5 @@
 import User from '../Models/User';
-import { IUser } from '../interfaces/user';
+import { IUser } from '../interfaces/User';
 
 class UserRepository {
   async getUserByEmail(email: IUser['email']) {

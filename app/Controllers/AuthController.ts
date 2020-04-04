@@ -5,7 +5,7 @@ import BaseError from '../errors/BaseError';
 const authService = new AuthService();
 
 export const login = async (req: Request, res: Response) => {
-
+  return 'login';
 };
 
 export const register = async (req: Request, res: Response, next: Function) => {
