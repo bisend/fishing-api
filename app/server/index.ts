@@ -5,15 +5,19 @@ import bodyParser from 'body-parser';
 import Router from '../routes/index';
 import db from '../database/connection';
 import Exception from '../middlewares/Exception';
+import passport from 'passport';
+
 const app = express();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(passport.initialize());
+require('./passport');
 
 app.use(Router);
 app.use(Exception);
 
-const port = Number(process.env.PORT) || 3000;
+const port = Number(process.env.PORT);
 
 const startServer = () => {
   return new Promise(async (resolve, reject) => {
